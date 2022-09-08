@@ -1,7 +1,8 @@
-*
+/*
 
 !.gitignore
 
+!qtile/
+!lvim/config.lua
 
-# ixculde my config folders
-!/qtile/*
+
