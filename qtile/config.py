@@ -171,48 +171,11 @@ keys = [
 ]
 
 
-# def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
-#     i = qtile.screens.index(qtile.current_screen)
-#     if i != 0:
-#         group = qtile.screens[i - 1].group.name
-#         qtile.current_window.togroup(group, switch_group=switch_group)
-#         if switch_screen == True:
-#             qtile.cmd_to_screen(i - 1)
-#
-#
-# def window_to_next_screen(qtile, switch_group=False, switch_screen=False):
-#     i = qtile.screens.index(qtile.current_screen)
-#     if i + 1 != len(qtile.screens):
-#         group = qtile.screens[i + 1].group.name
-#         qtile.current_window.togroup(group, switch_group=switch_group)
-#         if switch_screen == True:
-#             qtile.cmd_to_screen(i + 1)
-
-
-# keys.extend([
-#     # MOVE WINDOW TO NEXT SCREEN
-#     Key([mod, "shift"], "Right", lazy.function(
-#         window_to_next_screen, switch_screen=True)),
-#     Key([mod, "shift"], "Left", lazy.function(
-#         window_to_previous_screen, switch_screen=True)),
-# ])
-
 groups = []
 
-# FOR QWERTY KEYBOARDS
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ]
-
-# FOR AZERTY KEYBOARDS
-#group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "section", "egrave", "exclam", "ccedilla", "agrave",]
-
-#group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
-#group_labels = ["", "", "", "", "", "", "", "", "", "",]
-#group_labels = ["", "", "", "", "", "", "", "", "", "",]
-#group_labels = ["", "", "www", "", "code", "", "漣", "", "⌘", "",]
-#group_labels = ["Web", "Edit/chat", "Image", "Gimp", "Meld", "Video", "Vb", "Files", "Mail", "Music",]
 group_labels = ["WWI", "WII", "WEB", "Code", "Dev",
                 "Virit", "Files", "Mail", "Discord", "Music", ]
-
 group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall",
                  "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", ]
 
@@ -226,14 +189,12 @@ for i in range(len(group_names)):
 
 for i in groups:
     keys.extend([
-
         # CHANGE WORKSPACES
         Key([mod], i.name, lazy.group[i.name].toscreen()),
         Key([mod], "Tab", lazy.screen.next_group()),
         Key([mod, "shift"], "Tab", lazy.screen.prev_group()),
         Key(["mod1"], "Tab", lazy.screen.next_group()),
         Key(["mod1", "shift"], "Tab", lazy.screen.prev_group()),
-
         # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
         #Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
         # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND FOLLOW MOVED WINDOW TO WORKSPACE
@@ -241,29 +202,16 @@ for i in groups:
             i.name), lazy.group[i.name].toscreen()),
     ])
 
-
+## pick a theme form colors.py [everforest, dracula, doomOne, nord ,guuvbox, archoLinux]
+# @mytheme
 colors, backgroundColor, foregroundColor, workspaceColor, foregroundColorTwo = colors.everforest()
-
 
 def init_layout_theme():
     return {
         "margin": 2,  # margin = 5
-        # "border_width": 2,
-        # "border_focus": "#5e81ac",
-        # "border_normal": "#4c566a"
-        # "border_focus": "#cc241d",
-        # "border_normal": "#32302f"
-
-        # best colors
-        # "border_focus": colors[4],
-        # "border_normal": colors[1]
-
         "border_focus": workspaceColor,
         "border_normal": foregroundColorTwo
-
     }
-
-
 layout_theme = init_layout_theme()
 
 layouts = [
@@ -278,9 +226,7 @@ layouts = [
     # layout.MonadWide(**layout_theme),
 ]
 
-
 # WIDGETS FOR THE BAR
-
 def init_widgets_defaults():
     return dict(
         font="Ubuntu Bold",
@@ -289,9 +235,7 @@ def init_widgets_defaults():
         background=backgroundColor
     )
 
-
 widget_defaults = init_widgets_defaults()
-
 
 def nerd_icon(nerdfont_icon, fg_color, bg_opt=backgroundColor, font_opt="Iosevka Nerd Font", size_opt=15, pad_opt=0):
     return widget.TextBox(
@@ -303,7 +247,6 @@ def nerd_icon(nerdfont_icon, fg_color, bg_opt=backgroundColor, font_opt="Iosevka
         padding=pad_opt
     )
 
-
 def edge_sep():
     return widget.Sep(
         linewidth=3,
@@ -313,7 +256,6 @@ def edge_sep():
         background=backgroundColor
     )
 
-
 def logo():
     return widget.Image(
         filename="~/.config/qtile/python.png",
@@ -321,15 +263,10 @@ def logo():
         background=backgroundColor,
         margin=3,
         mouse_callbacks={
-            'Button1': lambda: qtile.cmd_spawn(
-                'j4-dmenu'
-            ),
-            'Button3': lambda: qtile.cmd_spawn(
-                f'{terminal} -e vim {home_dir}/.config/qtile/config.py'
-            )
+            'Button1': lambda: qtile.cmd_spawn( 'j4-dmenu' ),
+            'Button3': lambda: qtile.cmd_spawn( f'{terminal} -e lvim {home_dir}/.config/qtile/config.py')
         }
     )
-
 
 def my_sep(line_width_opt=1):
     return widget.Sep(
@@ -338,7 +275,6 @@ def my_sep(line_width_opt=1):
         foreground=colors[2],
         background=backgroundColor
     )
-
 
 def work_spaces():
     return widget.GroupBox(
@@ -350,18 +286,15 @@ def work_spaces():
         padding_x=5,
         borderwidth=1,
         disable_drag=True,
-        # active=colors[6],
-        # inactive=colors[2],
         rounded=True,
         highlight_method="block",
         this_current_screen_border=workspaceColor,
         other_current_screen_border=colors[9],
         other_screen_border=colors[1],
-        foreground=colors[2],
-
+        active=foregroundColor,
+        inactive=foregroundColorTwo,
+        foreground=foregroundColor,
         background=backgroundColor,
-        active=colors[2],
-        inactive=colors[1],
         # highlight_method="line",
         # highlight_color=[backgroundColor, workspaceColor]
     )
@@ -389,8 +322,6 @@ def system_tray():
         icon_size=18,
         padding=5
     )
-
-
 
 
 def init_widgets_list():
@@ -489,7 +420,6 @@ def init_widgets_list():
         widget.Clock(
             font="Ubuntu Mono",
             format='%b %d %Y',
-            # font="JetBrainsMono Nerd Font",
             foreground=backgroundColor,
             background=workspaceColor,
         ),
@@ -534,16 +464,10 @@ def init_widgets_screen2():
 widgets_screen1 = init_widgets_screen1()
 widgets_screen2 = init_widgets_screen2()
 
-
-# def init_screens():
-#     return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=26, opacity=0.8)),
-#             Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=26, opacity=0.8))]
 def init_screens():
     return [Screen(top=bar.Bar(widgets=init_widgets_list(), size=26, opacity=0.8))]
 
-
 screens = init_screens()
-
 
 # MOUSE CONFIGURATION
 mouse = [
@@ -570,16 +494,6 @@ def assign_app_group(client):
     #####################################################################################
     ### Use xprop fo find  the value of WM_CLASS(STRING) -> First field is sufficient ###
     #####################################################################################
-#    d[group_names[0]] = ["Navigator", "Firefox", "Vivaldi-stable", "Vivaldi-snapshot", "Chromium", "Google-chrome", "Brave", "Brave-browser", "navigator", "firefox", "vivaldi-stable", "vivaldi-snapshot", "chromium", "google-chrome", "brave", "brave-browser", ]
-#    d[group_names[1]] = [ "Atom", "Subl", "Geany", "Brackets", "Code-oss", "Code", "TelegramDesktop", "Discord", "atom", "subl", "geany", "brackets", "code-oss", "code", "telegramDesktop", "discord", ]
-#    d[group_names[2]] = ["Inkscape", "Nomacs", "Ristretto", "Nitrogen", "Feh", "inkscape", "nomacs", "ristretto", "nitrogen", "feh", ]
-#    d[group_names[3]] = ["Gimp", "gimp" ]
-#    d[group_names[4]] = ["Meld", "meld", "org.gnome.meld" "org.gnome.Meld" ]
-#    d[group_names[5]] = ["Vlc","vlc", "Mpv", "mpv" ]
-#    d[group_names[6]] = ["VirtualBox Manager", "VirtualBox Machine", "Vmplayer", "virtualbox manager", "virtualbox machine", "vmplayer", ]
-#    d[group_names[7]] = ["Thunar", "Nemo", "Caja", "Nautilus", "org.gnome.Nautilus", "Pcmanfm", "Pcmanfm-qt", "thunar", "nemo", "caja", "nautilus", "org.gnome.nautilus", "pcmanfm", "pcmanfm-qt", ]
-#    d[group_names[8]] = ["Evolution", "Geary", "Mail", "Thunderbird","evolution", "geary", "mail", "thunderbird", "discord" ]
-#    d[group_names[9]] = ["Spotify", "Pragha", "Clementine", "Deadbeef", "Audacious", "spotify", "pragha", "clementine", "deadbeef", "audacious" ]
     d[group_names[0][0]] = []
     d[group_names[1][0]] = []
     d[group_names[2][0]] = []
@@ -611,12 +525,6 @@ def slight_delay(window):
 
 
 main = None
-
-# @hook.subscribe.startup_once
-# def start_once():
-#     home = os.path.expanduser('~')
-#     subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
-
 
 @hook.subscribe.startup
 def start_once():
