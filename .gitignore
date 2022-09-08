@@ -1,0 +1,7 @@
+*
+
+!.gitignore
+
+
+# ixculde my config folders
+!/qtile/*
