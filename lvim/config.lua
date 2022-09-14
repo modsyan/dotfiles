@@ -11,7 +11,11 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
+lvim.colorscheme = "tokyonight-night" -- onedarker
+-- lvim.minimap_width = 10
+-- lvim.minimap_auto_start = 1
+-- lvim.minimap_auto_start_win_enter = 1
+-- lvim.builtin.lualine.options.theme = "gruvbox"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -20,6 +24,7 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<leader>r"] = "<cmd> :RnvimrToggle <CR>"
+-- lvim.lsp.automatic_servers_installation = true
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -63,8 +68,10 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+-- lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.view.side = "right"
+lvim.builtin.nvimtree.setup.view.relativenumber = true
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -163,11 +170,12 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- Additional Plugins
 lvim.plugins = {
 
-  --     {"folke/tokyonight.nvim"},
-  --     {
-  --       "folke/trouble.nvim",
-  --       cmd = "TroubleToggle",
-  --     },
+  { "folke/tokyonight.nvim" },
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
+  { "lunarvim/colorschemes" },
   {
     "kevinhwang91/rnvimr",
     cmd = "RnvimrToggle",
@@ -176,6 +184,30 @@ lvim.plugins = {
       vim.g.rnvimr_pick_enable = 1
       vim.g.rnvimr_bw_enable = 1
       vim.g.rnvimr_enable_ex = 1
+    end,
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({ "css", "scss", "html", "javascript", "python" }, { -- setup({"*"}) instade
+        RGB = true, -- #RGB hex codes
+        RRGGBB = true, -- #RRGGBB hex codes
+        RRGGBBAA = true, -- #RRGGBBAA hex codes
+        rgb_fn = true, -- CSS rgb() and rgba() functions
+        hsl_fn = true, -- CSS hsl() and hsla() functions
+        css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+      })
+    end,
+  },
+  {
+    'wfxr/minimap.vim',
+    run = "cargo install --locked code-minimap",
+    -- cmd = {"Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight"},
+    config = function()
+      vim.cmd("let g:minimap_width = 10")
+      vim.cmd("let g:minimap_auto_start = 1")
+      vim.cmd("let g:minimap_auto_start_win_enter = 1")
     end,
   },
 }

@@ -31,6 +31,7 @@ import re
 import socket
 import subprocess
 from typing import List  # noqa: F401
+from libqtile import qtile
 from libqtile import layout, bar, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
 from libqtile.command import lazy
@@ -176,8 +177,8 @@ groups = []
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ]
 group_labels = ["WWI", "WII", "WEB", "Code", "Dev",
                 "Virit", "Files", "Mail", "Discord", "Music", ]
-group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall",
-                 "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", ]
+group_layouts = ["monadtall", "monadtall", "monadtall", "bsp",
+                 "bsp", "monadtall", "monadtall", "monadtall", "monadtall", "bsp", ]
 
 for i in range(len(group_names)):
     groups.append(
@@ -191,10 +192,10 @@ for i in groups:
     keys.extend([
         # CHANGE WORKSPACES
         Key([mod], i.name, lazy.group[i.name].toscreen()),
-        Key([mod], "Tab", lazy.screen.next_group()),
-        Key([mod, "shift"], "Tab", lazy.screen.prev_group()),
-        Key(["mod1"], "Tab", lazy.screen.next_group()),
-        Key(["mod1", "shift"], "Tab", lazy.screen.prev_group()),
+        # Key([mod], "Tab", lazy.screen.next_group()),
+        # Key([mod, "shift"], "Tab", lazy.screen.prev_group()),
+        # Key(["mod1"], "Tab", lazy.screen.next_group()),
+        # Key(["mod1", "shift"], "Tab", lazy.screen.prev_group()),
         # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
         #Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
         # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND FOLLOW MOVED WINDOW TO WORKSPACE
@@ -204,22 +205,24 @@ for i in groups:
 
 ## pick a theme form colors.py [everforest, dracula, doomOne, nord ,guuvbox, archoLinux]
 # @mytheme
-colors, backgroundColor, foregroundColor, workspaceColor, foregroundColorTwo = colors.everforest()
+colors, backgroundColor, foregroundColor, workspaceColor, foregroundColorTwo = colors.everforest();
 
 def init_layout_theme():
     return {
-        "margin": 2,  # margin = 5
+        "margin": 3,  # margin = 5
         "border_focus": workspaceColor,
-        "border_normal": foregroundColorTwo
+        "border_normal": foregroundColorTwo,
+        # "border_width": 2
     }
 layout_theme = init_layout_theme()
 
 layouts = [
     layout.MonadTall(**layout_theme),
+    layout.Bsp(margin=18 , border_focus = workspaceColor, border_normal = foregroundColorTwo),
     layout.Tile(**layout_theme),
+    layout.Bsp(margin=3 , border_focus = workspaceColor, border_normal = foregroundColorTwo),
     layout.Max(**layout_theme),
-    layout.RatioTile(**layout_theme),
-    layout.Bsp(margin=18 , border_focus = workspaceColor, border_normal = foregroundColor),
+    # layout.RatioTile(**layout_theme),
     # layout.TreeTab(**layout_theme)
     # layout.Floating(**layout_theme),
     # layout.Matrix(**layout_theme),
@@ -263,8 +266,12 @@ def logo():
         background=backgroundColor,
         margin=3,
         mouse_callbacks={
-            'Button1': lambda: qtile.cmd_spawn( 'j4-dmenu' ),
-            'Button3': lambda: qtile.cmd_spawn( f'{terminal} -e lvim {home_dir}/.config/qtile/config.py')
+            'Button1': lambda: qtile.cmd_spawn(
+                'j4-dmenu'
+            ),
+            'Button3': lambda: qtile.cmd_spawn(
+                f'{terminal} -e lvim {home_dir}/.config/qtile/config.py'
+            )
         }
     )
 
@@ -418,7 +425,7 @@ def init_widgets_list():
         widget.Spacer(3),
         nerd_icon(" ", foregroundColorTwo, workspaceColor),
         widget.Clock(
-            font="Ubuntu Mono",
+            font="Ubuntu Bold",
             format='%b %d %Y',
             foreground=backgroundColor,
             background=workspaceColor,
@@ -426,7 +433,7 @@ def init_widgets_list():
 
         nerd_icon(" ", foregroundColorTwo, workspaceColor),
         widget.Clock(
-            font="Ubuntu Mono",
+            font="Ubuntu Bold",
             format='%I:%M %p',
             foreground=backgroundColor,
             background=workspaceColor,
@@ -465,7 +472,8 @@ widgets_screen1 = init_widgets_screen1()
 widgets_screen2 = init_widgets_screen2()
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_list(), size=26, opacity=0.8))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_list(), size=22, opacity=0.8,margin=[1,0,0,0]))]
+    # return [Screen(top=bar.Bar(widgets=init_widgets_list(), size=26, opacity=0.8))]
 
 screens = init_screens()
 
