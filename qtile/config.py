@@ -175,8 +175,8 @@ keys = [
 groups = []
 
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ]
-group_labels = ["WWI", "WII", "WEB", "Code", "Dev",
-                "Virit", "Files", "Mail", "Discord", "Music", ]
+group_labels = ["WWA", "WWB", "WWC", "COD", "DEV",
+                "VIR", "API", "DBS", "DIS", "MUS", ]
 group_layouts = ["monadtall", "monadtall", "monadtall", "bsp",
                  "bsp", "monadtall", "monadtall", "monadtall", "monadtall", "bsp", ]
 
@@ -358,32 +358,32 @@ def init_widgets_list():
             }
         ),
 
-        widget.Spacer(3),
-        widget.CPU(
-            format=" {freq_current}GHz {load_percent}% ",
-            font="Ubuntu Mono",
-            # format="{load_percent}% ",
-            foreground=backgroundColor,
-            background=foregroundColor,
-            update_interval=1,
-            mouse_callbacks={
-                'Button1': lambda: qtile.cmd_spawn(f"{terminal} -e gtop")
-            }
-        ),
+        # widget.Spacer(3),
+        # widget.CPU(
+        #     format=" {freq_current}GHz {load_percent}% ",
+        #     font="Ubuntu Mono",
+        #     # format="{load_percent}% ",
+        #     foreground=backgroundColor,
+        #     background=foregroundColor,
+        #     update_interval=1,
+        #     mouse_callbacks={
+        #         'Button1': lambda: qtile.cmd_spawn(f"{terminal} -e gtop")
+        #     }
+        # ),
 
-        widget.Spacer(3),
-        widget.ThermalSensor(
-            font="Ubuntu Mono",
-            foreground_alert=colors[9],
-            foreground=backgroundColor,
-            background=workspaceColor,
-            tag_sensor="Core 0",
-            update_interval=1,
-            metric=True,
-            padding=5,
-            threshold=80,
-            fmt='  {} ',
-        ),
+        # widget.Spacer(3),
+        # widget.ThermalSensor(
+        #     font="Ubuntu Mono",
+        #     foreground_alert=colors[9],
+        #     foreground=backgroundColor,
+        #     background=workspaceColor,
+        #     tag_sensor="Core 0",
+        #     update_interval=1,
+        #     metric=True,
+        #     padding=5,
+        #     threshold=80,
+        #     fmt='  {} ',
+        # ),
 
         widget.Spacer(3),
         widget.GenPollText(
@@ -399,17 +399,17 @@ def init_widgets_list():
             fmt=" {}"
         ),
 
-        widget.Spacer(3),
-        nerd_icon("", foregroundColorTwo, workspaceColor, "FontAwesome", 22, 3),
-        widget.GenPollText(
-            font="Ubuntu Mono",
-            foreground=backgroundColor,
-            background=workspaceColor,
-            update_interval=5,
-            func=lambda: subprocess.check_output(
-                f"{home}/.config/qtile/scripts/num-installed-pkgs").decode("utf-8"),
-            fmt="{} "
-        ),
+        # widget.Spacer(3),
+        # nerd_icon("", foregroundColorTwo, workspaceColor, "FontAwesome", 22, 3),
+        # widget.GenPollText(
+        #     font="Ubuntu Mono",
+        #     foreground=backgroundColor,
+        #     background=workspaceColor,
+        #     update_interval=5,
+        #     func=lambda: subprocess.check_output(
+        #         f"{home}/.config/qtile/scripts/num-installed-pkgs").decode("utf-8"),
+        #     fmt="{} "
+        # ),
         
         widget.Spacer(3),
         widget.Memory(
@@ -422,19 +422,21 @@ def init_widgets_list():
 
         
         # my_sep(),
-        widget.Spacer(3),
-        nerd_icon(" ", foregroundColorTwo, workspaceColor),
-        widget.Clock(
-            font="Ubuntu Bold",
-            format='%b %d %Y',
-            foreground=backgroundColor,
-            background=workspaceColor,
-        ),
+        # widget.Spacer(3),
+        # nerd_icon(" ", foregroundColorTwo, workspaceColor),
+        # widget.Clock(
+        #     font="Ubuntu Bold",
+        #     format='%b %d %Y',
+        #     foreground=backgroundColor,
+        #     background=workspaceColor,
+        # ),
 
+        widget.Spacer(3),
         nerd_icon(" ", foregroundColorTwo, workspaceColor),
         widget.Clock(
-            font="Ubuntu Bold",
-            format='%I:%M %p',
+            font="Ubuntu Mono",
+            # format='%I:%M %p',
+            format='%A, %B %d - %H:%M %p',
             foreground=backgroundColor,
             background=workspaceColor,
         ),
