@@ -152,4 +152,4 @@ bindkey -s '^g' 'git pull && git status\n'
 bindkey '^R' history-incremental-search-backward
 bindkey -v 
 bindkey -M viins 'jk' vi-cmd-mode
-bindkey -s '^L' 'clear && neofetch\n'
+bindkey -s '^N' 'clear && neofetch\n'

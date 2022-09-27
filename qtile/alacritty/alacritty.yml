@@ -6,7 +6,7 @@
 ## Import files (Colors, Fonts, Etc)
 import:
   - ~/.config/qtile/alacritty/fonts.yml
-  - ~/.config/qtile/alacritty/alacritty-colorscheme/themes/tokyo-night.yaml
+  - ~/.config/qtile/alacritty/alacritty-colorscheme/themes/doom_one.yml
   # - ~/.config/qtile/alacritty/axyl-theme.yml
 
 ## Set environment variables

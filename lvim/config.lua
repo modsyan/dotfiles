@@ -28,7 +28,9 @@ lvim.colorscheme = "onedarker" -- onedarker
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 keybindings_prefix["<leader>r"] = "<cmd> :RnvimrToggle <CR>"
+-- keybindings_prefix['<leader>md'] = "<Plug>MarkdownPreviewToggle"
 lvim.lsp.diagnostics.virtual_text = false
+
 -- lvim.lsp.automatic_servers_installation = true
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
@@ -215,6 +217,14 @@ lvim.plugins = {
       vim.cmd("let g:minimap_auto_start_win_enter = 1")
     end,
   },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   run = function() vim.fun["mkdp#util#install"]() end,
+  --   ft = "markdown",
+  --   config = function()
+  --     vim.g.mkdp_auto_start = 1
+  --   end,
+  -- },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
