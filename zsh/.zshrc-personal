@@ -55,6 +55,7 @@ alias jsdir='cd /run/media/modsyan/Per/MyCode/javascript'
 #git_aliases
 alias addall='git add .'
 alias commit='git commit -m'
+alias pushmain='git push origin main'
 
 #alias newc = '/home/modsyan/myscr/newc.sh'
 #alias zshal = 'nvim ~/.zshrc-personal'
