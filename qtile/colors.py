@@ -124,4 +124,21 @@ def arcoLinux():
     workspaceColor = "#3383d0"
     foregroundColorTwo = "#191413"
     # foregroundColorTwo = colors[6]
-    return colors, backgroundColor, foregroundColor, workspaceColor, foregroundColor
+    return colors, backgroundColor, foregroundColor, workspaceColor, foregroundColorTwo
+
+def distro():
+    colors = [["#282c34", "#282c34"],
+              ["#1c1f24", "#1c1f24"],
+              ["#dfdfdf", "#dfdfdf"],
+              ["#ff6c6b", "#ff6c6b"],
+              ["#98be65", "#98be65"],
+              ["#da8548", "#da8548"],
+              ["#51afef", "#51afef"],
+              ["#c678dd", "#c678dd"],
+              ["#46d9ff", "#46d9ff"],
+              ["#a9a1e1", "#a9a1e1"]]
+    backgroundColor = "#1c1f24" 
+    foregroundColor = "#dfdfdf"
+    workspaceColor = "#ff6c6b"
+    foregroundColorTwo= "#606060"
+    return colors, backgroundColor, foregroundColor, workspaceColor, foregroundColorTwo

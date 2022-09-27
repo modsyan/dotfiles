@@ -1,3 +1,6 @@
 #!/bin/sh
 # feh --no-fehbg --bg-scale "$HOME/.config/qtile/wallpaper.jpg"
-feh --no-fehbg --bg-scale "/home/modsyan/.config/wallpapers/Wallpapers/29.jpg"
+# feh --no-fehbg --bg-scale "/home/modsyan/.config/wallpapers/CherryBlossoms.png"
+# feh --no-fehbg --bg-scale "/home/modsyan/.config/wallpapers/nord-arch.png"
+feh --no-fehbg --bg-scale "$(find /home/modsyan/.config/wallpapers/fav/|shuf -n1)"
+

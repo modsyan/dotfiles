@@ -7,11 +7,16 @@ a global executable or a path to
 an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+-- global varibales
+local terminal_prefix = lvim.builtin.terminal
+local neotree_prefix = lvim.builtin.nvimtree
+local keybindings_prefix = lvim.keys.normal_mode
 
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "tokyonight-night" -- onedarker
+-- lvim.colorscheme = "tokyonight-night" -- onedarker
+lvim.colorscheme = "onedarker" -- onedarker
 -- lvim.minimap_width = 10
 -- lvim.minimap_auto_start = 1
 -- lvim.minimap_auto_start_win_enter = 1
@@ -19,11 +24,11 @@ lvim.colorscheme = "tokyonight-night" -- onedarker
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
--- keymappings [view all the defaults by pressing <leader>Lk]
+-- keymappings [view all the defaults by pressing <leader>Lk] -- add your own keymapping
 lvim.leader = "space"
--- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<leader>r"] = "<cmd> :RnvimrToggle <CR>"
+keybindings_prefix["<leader>r"] = "<cmd> :RnvimrToggle <CR>"
+lvim.lsp.diagnostics.virtual_text = false
 -- lvim.lsp.automatic_servers_installation = true
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
@@ -69,7 +74,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 -- lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.view.side = "right"
+-- lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.view.relativenumber = true
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 

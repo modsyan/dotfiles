@@ -35,6 +35,7 @@ from libqtile import qtile
 from libqtile import layout, bar, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
 from libqtile.command import lazy
+from libqtile.layout.tree import Section
 from libqtile.widget import Spacer
 from spotify import Spotify
 from scripts import storage
@@ -175,8 +176,8 @@ keys = [
 groups = []
 
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ]
-group_labels = ["WWA", "WWB", "WWC", "COD", "DEV",
-                "VIR", "API", "DBS", "DIS", "MUS", ]
+group_labels = ["DEV", "WWA", "SYS", "WWB", "COD",
+                "API", "DB", "VIR", "DIS", "MUS", ]
 group_layouts = ["monadtall", "monadtall", "monadtall", "bsp",
                  "bsp", "monadtall", "monadtall", "monadtall", "monadtall", "bsp", ]
 
@@ -205,7 +206,7 @@ for i in groups:
 
 ## pick a theme form colors.py [everforest, dracula, doomOne, nord ,guuvbox, archoLinux]
 # @mytheme
-colors, backgroundColor, foregroundColor, workspaceColor, foregroundColorTwo = colors.everforest();
+colors, backgroundColor, foregroundColor, workspaceColor, foregroundColorTwo = colors.gruvbox()
 
 def init_layout_theme():
     return {
@@ -223,7 +224,7 @@ layouts = [
     layout.Bsp(margin=3 , border_focus = workspaceColor, border_normal = foregroundColorTwo),
     layout.Max(**layout_theme),
     # layout.RatioTile(**layout_theme),
-    # layout.TreeTab(**layout_theme)
+    layout.TreeTab(**layout_theme),
     # layout.Floating(**layout_theme),
     # layout.Matrix(**layout_theme),
     # layout.MonadWide(**layout_theme),

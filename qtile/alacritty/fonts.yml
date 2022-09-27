@@ -3,28 +3,32 @@ font:
   normal:
     family: "JetBrainsMono Nerd Font"
     # family: "Source Code Pro"
+    # family: "Droid Sans Mono"
     style: Medium
 
   # Bold font face
   bold:
     family: "JetBrainsMono Nerd Font"
     # family: "Source Code Pro"
+    # family: "Droid Sans Mono"
     style: Bold
 
   # Italic font face
   italic:
     family: "JetBrainsMono Nerd Font"
     # family: "Source Code Pro"
+    # family: "Droid Sans Mono"
     style: Italic
 
   # Bold italic font face
   bold_italic:
     family: "JetBrainsMono Nerd Font"
     # family: "Source Code Pro"
+    # family: "Droid Sans Mono"
     style: Bold Italic
 
   # Point size
-  size: 10
+  size: 10.6
 
 
   # Offset
