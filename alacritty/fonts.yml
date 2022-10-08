@@ -28,8 +28,15 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 10.6
+  size: 10
 
+# cursor:
+#   text: '#191919'
+#   cursor: '#d8dee9'
+
+# vi_mode_cursor:
+#   text: CellBackground
+#   cursor: CellForeground
 
   # Offset
   offset:

@@ -66,11 +66,7 @@ def window_to_next_group(qtile):
 
 
 keys = [
-
-    # Most of our keybindings are in sxhkd file - except these
-
-    # SUPER + FUNCTION KEYS
-
+# Most of our keybindings are in sxhkd file - except these SUPER + FUNCTION KEYS
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
 
@@ -168,7 +164,7 @@ keys = [
     Key([mod, "shift"], "Right", lazy.layout.swap_right()),
 
     # TOGGLE FLOATING LAYOUT
-    Key([mod, "shift"], "space", lazy.window.toggle_floating()),
+    Key([mod, "shift"], "f", lazy.window.toggle_floating()),
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
 ]
 
@@ -408,7 +404,7 @@ def init_widgets_list():
         #     background=workspaceColor,
         #     update_interval=5,
         #     func=lambda: subprocess.check_output(
-        #         f"{home}/.config/qtile/scripts/num-installed-pkgs").decode("utf-8"),
+        #         f"{home}/.config/scripts/num-installed-pkgs").decode("utf-8"),
         #     fmt="{} "
         # ),
         
@@ -437,7 +433,7 @@ def init_widgets_list():
         widget.Clock(
             font="Ubuntu Mono",
             # format='%I:%M %p',
-            format='%A, %B %d - %H:%M %p',
+            format='%A, %B %d - %I:%M %p',
             foreground=backgroundColor,
             background=workspaceColor,
         ),
@@ -539,7 +535,7 @@ main = None
 
 @hook.subscribe.startup
 def start_once():
-    start_script = os.path.expanduser("~/.config/qtile/scripts/autostart.sh")
+    start_script = os.path.expanduser("~/.config/scripts/autostart.sh")
     subprocess.call([start_script])
 
 

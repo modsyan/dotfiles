@@ -35,7 +35,8 @@ alt + F1
 
 # Launch Menus
 super + {x,n,s}
-    {powermenu,def-nmdmenu,def-ssdmenu}
+    {powermenu,def-nmdmenu,takeshot --area}
+    # {powermenu,def-nmdmenu,def-ssdmenu}
 super + d
     rofi -show run
     # rofi -show drun
@@ -53,8 +54,9 @@ super + v
 alt + {e,l}
     {edit-configs, quick-links}
 # Launch Applications
-super + shift + {b,f,w,g,c,d,s,v}
-    {brave,thunar,firefox,geany,code,discord,spotify,virtualbox}
+super + shift + {b,w,g,c,d,s,v}
+    # {brave,firefox,geany,code,discord,spotify,virtualbox}
+    # {brave,thunar,firefox,geany,code,discord,spotify,virtualbox}
     #{thunar,firefox,xfce4-terminal -x ranger,geany,code,spotify,virtualbox}
     #{thunar,firefox,xfce4-terminal -x ranger,geany,code,alacritty,spotify,virtualbox}
 

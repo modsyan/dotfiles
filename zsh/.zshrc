@@ -45,7 +45,7 @@ precmd() { vcs_info }
 # --------------------> end
 
 # --------------------> off default
-ZSH_THEME="robbyrussell"
+ZSH_THEME="codespaces"
 # ZSH_THEME=random
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" "axyl" "codespaces" "fino-time" "half-life")
 # ZSH_THEME_RANDOM_QUIET=true
@@ -66,14 +66,20 @@ _comp_options+=(globdots) # lets you tab complete hidden files by default
 plugins=(
 	git
 	npm
-	zsh-autosuggestions
+  zsh-autosuggestions
 	vi-mode
 	zsh-syntax-highlighting
+  bazel
+  docker
+  docker-compose
+  gcloud
+  kubectl
 	)
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
+
 #colorscript -r
 # neofetch
