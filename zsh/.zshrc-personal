@@ -58,13 +58,7 @@ alias commit='git commit -m'
 alias push'git push origin'
 alias st='git st'
 alias remote='git remote add'
-
-#alias newc = '/home/modsyan/myscr/newc.sh'
-#alias zshal = 'nvim ~/.zshrc-personal'
-# spotify
-#alias spotify='LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify'
 # required functions
-
 ex ()
 {
   if [ -f $1 ] ; then

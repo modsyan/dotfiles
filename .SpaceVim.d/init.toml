@@ -1,0 +1,50 @@
+[options]
+    colorscheme = "gruvbox"
+    colorscheme_bg = "dark"
+    enable_guicolors = true
+    statusline_separator = "arrow"
+    statusline_iseparator = "arrow"
+    buffer_index_type = 4
+    enable_tabline_filetype_icon = true
+    enable_statusline_mode = false
+    disabled_plugins = []
+    bootstartp_before = 'terminal-keys'
+
+
+# Enable autocomplete layer
+[[layers]]
+name = 'autocomplete'
+auto_completion_return_key_behavior = "complete"
+auto_completion_tab_key_behavior = "smart"
+
+[[layers]]
+name = 'shell'
+default_position = 'top'
+default_height = 30
+
+# turn on systemc clipboard using leader+y,p
+[[layers]]
+name =  'default'
+
+# autoTheme 
+[[layers]]
+name = "colorscheme"
+
+# turn on telescope
+[[layers]]
+name =  'telescope'
+
+[[layers]]
+name =  "lang#javascript"
+
+# plugins
+
+# themes
+[[custom_plugins]]
+repo =  "folke/tokyonight.nvim" 
+termcolors = 256
+merged = 0
+
+[[custom_plugins]]
+  repo = "mhartington/oceanic-next"
+  merged = 0
