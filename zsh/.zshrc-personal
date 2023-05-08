@@ -51,13 +51,19 @@ alias yi='yay -S'
 alias yy='yay -Sy'
 alias yu='yay -Su'
 alias his='history | grep '
-alias jsdir='cd /run/media/modsyan/Per/MyCode/javascript'
+alias per='cd /run/media/modsyan/Per/'
 #git_aliases
 alias addall='git add .'
-alias commit='git commit -m'
-alias push='git push origin'
-alias st='git st'
+alias commitm='git commit -m'
+alias commit='git commit'
+alias push='git push origin main'
+alias pull='git pull'
+alias gst='git st'
 alias remote='git remote add'
+alias ishere='ls | grep '
+alias sxhkd_config='lvim ~/.config/sxhkd/sxhkdrc'
+alias svim='nvim -u /home/modsyan/.SpaceVim/init.vim'
+alias avim='nvim -u /home/modsyan/.config/avim/init.vim'
 # required functions
 ex ()
 {
@@ -107,18 +113,23 @@ function zle-keymap-select {
 	   [[ ${KEYMAP} == viins ]] ||
 	   [[ ${KEYMAP} = '' ]] ||
 	   [[ $1 = 'beam' ]]; then
-	echo -ne '\e[1 q'
-	# echo -ne '\e[5 q'
+	#echo -ne '\e[1 q'
+	echo -ne '\e[5 q' # $--> same
   fi
 }
 zle -N zle-keymap-select
 zle-line-init() {
 	zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
 	echo -ne "\e[5 q"
+	# echo -ne "\e[5 q" # $--> same
 }
 zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# echo -ne '\e[1 q' # Use beam shape cursor on startup.
+# preexec() { echo -ne '\e[1 q' ;} # Use beam shape cursor for each new prompt.
+
+echo -ne '\e[1 q' # Use beam shape cursor on startup. $--> same
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt. $--> same
 
 # ci"
 autoload -U select-quoted
@@ -150,4 +161,4 @@ bindkey -s '^g' 'git pull && git status\n'
 bindkey '^R' history-incremental-search-backward
 bindkey -v 
 bindkey -M viins 'jk' vi-cmd-mode
-bindkey -s '^N' 'clear && neofetch\n'
+# bindkey -s '^N' 'clear && neofetch\n'

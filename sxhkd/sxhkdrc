@@ -15,15 +15,13 @@ super + Return
 super + KP_Enter
     terminal -f
 
-#super + shift + Return
-    #dmenu_run -fn 'NotoMonoRegular:bold:pixelsize=14'
-
+#super + shift + Return dmenu_run -fn 'NotoMonoRegular:bold:pixelsize=14'
 super + shift + Return
     alacritty
 
 # Fullscreen Terminal
-super + shift + t
-    xfce4-terminal --fullscreen
+# super + shift + t
+    # xfce4-terminal --fullscreen
     #terminal -m
 
 # Toggle Conkeww
@@ -32,21 +30,30 @@ super + shift + e
 # j4 dmenu
 alt + F1
     j4-dmenu
+    
+super + d
+  dmenu_run -c -fn 'JetBrainsMono Nerd Font:size=10' -bw 2 -l 20 -g 2 -p 'Run: '
+    # j4-dmenu
 
 # Launch Menus
 super + {x,n,s}
     {powermenu,def-nmdmenu,takeshot --area}
     # {powermenu,def-nmdmenu,def-ssdmenu}
-super + d
-    rofi -show run
-    # rofi -show drun
+
+# super + shift + d
+    # /usr/bin/dmenu_run
     # dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+    # rofi -show run
+    # rofi -show drun
+
+super + r
+    /usr/local/bin/dmenurecored
+
 
 # Lock Screen
 ctrl + alt + l
     lock
 
-super + r
     terminal -e ranger
 super + v
     /usr/local/bin/nvim-run
@@ -60,13 +67,26 @@ super + shift + {b,w,g,c,d,s,v}
     #{thunar,firefox,xfce4-terminal -x ranger,geany,code,spotify,virtualbox}
     #{thunar,firefox,xfce4-terminal -x ranger,geany,code,alacritty,spotify,virtualbox}
 
-# Volume controls
-XF86Audio{RaiseVolume,LowerVolume,Mute}
-    volume{ --up, --down, --toggle}
+super + alt + {b, c, r, f, s}
+  {brave, code, rider, thunar, spotify}
+
 
 # Volume controls
 super + {equal,minus,BackSpace}
     volume{ --up, --down, --toggle}
+
+# Volume controls
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+    volume{ --up, --down, --toggle}
+
+XF86AudioPlay
+  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+XF86AudioNext
+  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+XF86AudioPrev
+  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
 # Brightness controls
 XF86MonBrightness{Up,Down}
@@ -84,18 +104,27 @@ ctrl + Print
 ctrl + shift + Print
     takeshot --area
 
-#
-#
+
+# change keyboard language
+super + space
+  {setxkbmap us, setxkbmap ar}
+
+super + alt + w
+  feh -z --no-fehbg --bg-fill ~/.config/wallpapers/nordic/wallpapers/
+
+super + F6
+    polybar-msg cmd toggle
 # BSPWM HOTKEYS
-#
-#
 
 # quit/restart bspwm
-ctrl + shift + {q,r}
-    bspc {quit,wm -r}
+super + shift + r
+    bspc wm -r
+
+ctrl + shift + q
+    bspc quit
 
 # close and kill
-super + c
+super + q
     bspc node -c
 
 # alternate between the tiled and monocle layout
@@ -115,8 +144,13 @@ super + g
 #
 
 # set the window state
-super + {t,ctrl + t,f}
-	bspc node -t {tiled,pseudo_tiled,fullscreen}
+super +  t
+	{bspc node -t tiled, bspc node -t pseudo_tiled }
+
+super + f
+  { bspc node -t tiled, bspc node -t fullscreen}
+
+
 
 # set the node flags
 super + ctrl + {m,x,y,z}

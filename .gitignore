@@ -11,6 +11,8 @@
 !picom/
 !dunst/
 !alacritty
-!mpv/
+!mpv/input.conf
+!mpv/mvp.conf
 !scripts/
 !.SpaceVim.d/
+

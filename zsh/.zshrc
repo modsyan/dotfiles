@@ -12,6 +12,14 @@ export PWD=/home/$USER
 export OLDPWD=/home/$USER
 export BAT_THEME="Nord"
 
+
+# docker @modsyan
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+
+# cargo add path
+PATH="$PATH:/home/modsyan/.cargo/bin/"
+
+
 # For NPM GLOBal Installation
 NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
@@ -23,10 +31,11 @@ export ZSH=/usr/share/oh-my-zsh
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
+. /opt/asdf-vm/asdf.sh
+
 # --------------------> now
 # Format the vcs_info_msg_0_ variable
 # zstyle ':vcs_info:git:*' formats "%b"
-
 # ZSH_THEME_GIT_PROMPT_PREFIX=""
 # ZSH_THEME_GIT_PROMPT_SUFFIX=""
 # ZSH_THEME_GIT_PROMPT_DIRTY=" ✘"
@@ -50,6 +59,16 @@ ZSH_THEME="codespaces"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" "axyl" "codespaces" "fino-time" "half-life")
 # ZSH_THEME_RANDOM_QUIET=true
 # -------------------> end
+
+# NNN_PLUGINS  -->> needed to be handled from plugins doc on github of nnn 
+# NNN_PLUG_FINDER='f:finder;' 
+# NNN_PLUG_OPEN='o:fzopen;'
+# NNN_PLUG_MOCQ='p:mocq;'
+# NNN_PLUG_DIFFS='d:diffs;'
+# NNN_PLUG_MOUNT='t:nmount;'
+# NNN_PLUG_IMG='v:imgview;'
+# export NNN_PLUG="$NNN_PLUG_FINDER;$NNN_PLUG_OPEN;$NNN_PLUG_MOCQ;$NNN_PLUG_DIFFS;$NNN_PLUG_MOUNT;$NNN_PLUG_IMG"
+export NNN_PLUG='f:finder;o:fzopen;p:mocq;d:diffs;t:nmount;v:imgview'
 
 source $ZSH/oh-my-zsh.sh
 export EDITOR=/usr/bin/nvim

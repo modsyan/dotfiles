@@ -15,3 +15,9 @@ class emptytrash(Command):
         HOME = os.environ['HOME']
         self.fm.run(f'trash-empty')
 
+
+class code(Command):
+    def execute(self):
+        dirname = self.fm.thisdir.path
+        codecmd = ["code", dirname]
+        self.fm.execute_command(codecmd)

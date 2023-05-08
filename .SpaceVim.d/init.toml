@@ -1,4 +1,5 @@
 [options]
+    automatic_update = true
     colorscheme = "gruvbox"
     colorscheme_bg = "dark"
     enable_guicolors = true
@@ -31,8 +32,8 @@ name =  'default'
 name = "colorscheme"
 
 # turn on telescope
-[[layers]]
-name =  'telescope'
+# [[layers]]
+# name =  'telescope'
 
 [[layers]]
 name =  "lang#javascript"
@@ -46,5 +47,11 @@ termcolors = 256
 merged = 0
 
 [[custom_plugins]]
-  repo = "mhartington/oceanic-next"
-  merged = 0
+repo = "mhartington/oceanic-next"
+merged = 0
+
+[[custom_plugins]]
+repo = "andweeb/presence.nvim"
+merged = 0
+
+

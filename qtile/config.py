@@ -175,7 +175,10 @@ group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ]
 group_labels = ["DEV", "WWA", "SYS", "WWB", "COD",
                 "API", "DB", "VIR", "DIS", "MUS", ]
 group_layouts = ["monadtall", "monadtall", "monadtall", "bsp",
-                 "bsp", "monadtall", "monadtall", "monadtall", "monadtall", "bsp", ]
+                 "bsp", "monadtall", "monadtall", "monadtall", "monadtall", "tile", ]
+
+# group_layouts = ["monadtall", "monadtall", "monadtall", "bsp",
+#                  "bsp", "monadtall", "monadtall", "monadtall", "monadtall", "bsp", ]
 
 for i in range(len(group_names)):
     groups.append(
@@ -202,7 +205,7 @@ for i in groups:
 
 ## pick a theme form colors.py [everforest, dracula, doomOne, nord ,guuvbox, archoLinux]
 # @mytheme
-colors, backgroundColor, foregroundColor, workspaceColor, foregroundColorTwo = colors.gruvbox()
+colors, backgroundColor, foregroundColor, workspaceColor, foregroundColorTwo = colors.nord()
 
 def init_layout_theme():
     return {
@@ -357,29 +360,29 @@ def init_widgets_list():
 
         # widget.Spacer(3),
         # widget.CPU(
-        #     format=" {freq_current}GHz {load_percent}% ",
-        #     font="Ubuntu Mono",
-        #     # format="{load_percent}% ",
-        #     foreground=backgroundColor,
-        #     background=foregroundColor,
-        #     update_interval=1,
-        #     mouse_callbacks={
-        #         'Button1': lambda: qtile.cmd_spawn(f"{terminal} -e gtop")
-        #     }
+        #    format=" {freq_current}GHz {load_percent}% ",
+        #    font="Ubuntu Mono",
+        #    # format="{load_percent}% ",
+        #    foreground=backgroundColor,
+        #    background=foregroundColor,
+        #    update_interval=1,
+        #    mouse_callbacks={
+        #        'Button1': lambda: qtile.cmd_spawn(f"{terminal} -e gtop")
+        #    }
         # ),
-
+#
         # widget.Spacer(3),
         # widget.ThermalSensor(
-        #     font="Ubuntu Mono",
-        #     foreground_alert=colors[9],
-        #     foreground=backgroundColor,
-        #     background=workspaceColor,
-        #     tag_sensor="Core 0",
-        #     update_interval=1,
-        #     metric=True,
-        #     padding=5,
-        #     threshold=80,
-        #     fmt='  {} ',
+        #    font="Ubuntu Mono",
+        #    foreground_alert=colors[9],
+        #    foreground=backgroundColor,
+        #    background=workspaceColor,
+        #    tag_sensor="Core 0",
+        #    update_interval=1,
+        #    metric=True,
+        #    padding=5,
+        #    threshold=80,
+        #    fmt='  {} ',
         # ),
 
         widget.Spacer(3),
@@ -471,7 +474,9 @@ widgets_screen1 = init_widgets_screen1()
 widgets_screen2 = init_widgets_screen2()
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_list(), size=22, opacity=0.8,margin=[1,0,0,0]))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=22, opacity=0.8,margin=[1,0,0,0])),
+            Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=22, opacity=0.8,margin=[1,0,0,0]))]
+    # return [Screen(top=bar.Bar(widgets=init_widgets_list(), size=22, opacity=0.8,margin=[1,0,0,0]))]
     # return [Screen(top=bar.Bar(widgets=init_widgets_list(), size=26, opacity=0.8))]
 
 screens = init_screens()
@@ -511,7 +516,7 @@ def assign_app_group(client):
     d[group_names[6][0]] = []
     d[group_names[7][0]] = ["thunderbird"]
     d[group_names[8][0]] = ["discord", "Discord", ]
-    d[group_names[9][0]] = ["spotify", "Spotify", ]
+    d[group_names[9][0]] = ["spotify", "Spotify", "easyeffects",  "easyeffects", "thunderbird", "Thunderbird"]
     ######################################################################################
 
     wm_class = client.window.get_wm_class()[0]
@@ -587,6 +592,8 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='VirtualBox Manger'),
     Match(wm_class='Oracle VM VirtualBox Manger'),
     Match(wm_class='Oracle VM VirtualBox'),
+    Match(wm_class='Discover Overlay'),
+    Match(wm_class='discover-overlay'),
     #    Match(wm_class='xfce4-terminal'),
 
 ],  fullscreen_border_width=0, border_width=0)
