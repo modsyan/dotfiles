@@ -14,9 +14,10 @@ import = [
   ### selected font ### 
 
   # "~/.config/alacritty/fonts/source-code.toml",
-  "~/.config/alacritty/fonts/fira.toml",
+  # "~/.config/alacritty/fonts/fira.toml",
   # "~/.config/alacritty/fonts/hack.toml",
   # "~/.config/alacritty/fonts/jetbrains-font.toml",
+  "~/.config/alacritty/fonts/ibm-blex.toml",
 ]
 
 [bell]

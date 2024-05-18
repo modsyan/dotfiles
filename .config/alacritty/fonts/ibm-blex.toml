@@ -1,0 +1,28 @@
+# both the IBM Plex Mono and BlexMono Nerd Font are included in the package
+# required families: IBM Plex Mono, BlexMono Nerd Font
+# in arch linux you can install the required fonts with the following command:
+##################################################################################
+#### sudo pacman -S ttf-ibm-plex ttf-ibmplex-mono-nerd ttf-nerd-fonts-symbols ####
+##################################################################################
+
+[font.italic]
+family = "IBM Plex Mono"
+style = "Italic"
+
+
+[font.bold_italic]
+family = "IBM Plex Mono"
+style = "Bold Italic"
+
+
+[font.bold]
+family = "BlexMono Nerd Font"
+style = "Bold"
+
+[font.normal]
+family = "BlexMono Nerd Font"
+style = "Medium"
+
+[font.offset]
+x = 0
+y = 0
