@@ -1,0 +1,1 @@
+/home/modsyan/.config/emacs/elpaca/repos/evil/evil-core.el

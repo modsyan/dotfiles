@@ -1,0 +1,259 @@
+#
+# wm independent hotkeys
+#
+
+# reloads sxhkd configuration:
+super + Escape
+    pkill -USR1 -x sxhkd
+
+# Launch Terminal
+super + Return
+    terminal
+    #xfce4-terminal
+
+# Floating Alacritty Terminal
+super + KP_Enter
+    terminal -f
+
+#super + shift + Return dmenu_run -fn 'NotoMonoRegular:bold:pixelsize=14'
+super + shift + Return
+    alacritty
+
+# Fullscreen Terminal
+# super + shift + t
+    # xfce4-terminal --fullscreen
+    #terminal -m
+
+# Toggle Conkeww
+super + shift + e
+    toggle-conkeww
+
+
+# super + d
+  # j4-dmenu
+    
+super + d
+alt + F1
+  my-dmenu
+
+
+
+super + d
+  dmenu_run -c -fn 'JetBrainsMono Nerd Font:size=10' -bw 2 -l 20 -g 2 -p 'Run: '
+
+# j4-dmenu
+# Launch Menus
+super + {x,s}
+	{ powermenu, takeshot --area}
+    # {powermenu,def-nmdmenu,takeshot --area}
+    # {powermenu,def-nmdmenu,def-ssdmenu}
+    
+    
+super + shift + n
+	def-nmdmenu
+
+# super + shift + d
+    # /usr/bin/dmenu_run
+    # dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+    # rofi -show run
+    # rofi -show drun
+
+super + r
+    /usr/local/bin/dmenurecored
+
+
+# Lock Screen
+ctrl + shift + super +  l
+    lock
+
+    terminal -e ranger
+super + v
+    /usr/local/bin/nvim-run
+# custom dmenu scripts
+alt + {e,l}
+    {edit-configs, quick-links}
+# Launch Applications
+super + shift + {b,w,g,c,d,s,v}
+    # {brave,firefox,geany,code,discord,spotify,virtualbox}
+    # {brave,thunar,firefox,geany,code,discord,spotify,virtualbox}
+    #{thunar,firefox,xfce4-terminal -x ranger,geany,code,spotify,virtualbox}
+    #{thunar,firefox,xfce4-terminal -x ranger,geany,code,alacritty,spotify,virtualbox}
+
+super + alt + {b, c, r, f, s}
+  {brave, code, rider, thunar, spotify}
+
+
+# Volume controls
+super + {equal,minus,BackSpace}
+    volume{ --up, --down, --toggle}
+
+# Volume controls
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+    volume{ --up, --down, --toggle}
+
+XF86AudioPlay
+  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+XF86AudioNext
+  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+XF86AudioPrev
+  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+# Brightness controls
+XF86MonBrightness{Up,Down}
+    brightness{ --up, --down}
+
+# screenshot
+Print
+    takeshot --now
+
+# screenshot active window
+ctrl + Print
+    takeshot --win
+
+# screenshot selected area
+ctrl + shift + Print
+    takeshot --area
+
+
+# change keyboard language
+super + space
+  {setxkbmap us, setxkbmap ara}
+
+super + alt + w
+  feh -z --no-fehbg --bg-fill ~/.config/wallpapers/nordic/wallpapers/
+
+super + F6
+    polybar-msg cmd toggle
+# BSPWM HOTKEYS
+
+# quit/restart bspwm
+super + shift + r
+    bspc wm -r
+
+ctrl + shift + q
+    bspc quit
+
+# close and kill
+super + q
+    bspc node -c
+
+# alternate between the tiled and monocle layout
+super  + n
+	bspc node -t "~"{floating,tiled}
+
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
+
+#
+# state/flags
+#
+
+# set the window state
+super +  t
+	{bspc node -t tiled, bspc node -t pseudo_tiled }
+
+super + f
+  { bspc node -t tiled, bspc node -t fullscreen}
+
+
+
+# set the node flags
+# super + ctrl + {m,x,y,z}
+# 	bspc node -g {marked,locked,sticky,private}
+
+# Send the window to another edge of the screen
+super + {_,shift + }{Left,Down,Up,Right}
+    bspc node -{f,s} {west,south,north,east}
+
+# Change focus to next window, including floating window
+alt + {_,shift + }Tab
+    bspc node -f {next.local,prev.local}
+ 
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous window in the current desktop
+super + {_,shift + }c
+	bspc node -f {next,prev}.local.!hidden.window
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+
+super + {_,ctrl + }{1-10}
+	bspc {desktop -f,node -d} '^{1-10}'
+
+#
+# preselect
+#
+
+# preselect the direction
+# super + ctrl + {h,j,k,l}
+# 	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+# super + ctrl + {1-9}
+# 	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+# super + ctrl + space
+# 	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+# super + ctrl + shift + space
+# 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# Expanding windows
+super + control {Left,Right,Up,Down}
+    bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
+
+# Shrinking windows
+super + alt + {Left,Right,Up,Down}
+    bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}

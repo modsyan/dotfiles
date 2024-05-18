@@ -1,0 +1,18 @@
+# .config directory links
+$HOME/.dotfiles/.config/alacritty:$HOME/.config/
+$HOME/.dotfiles/.config/nvim:$HOME/.config/
+$HOME/.dotfiles/.config/lvim:$HOME/.config/
+$HOME/.dotfiles/.config/emacs:$HOME/.config/
+$HOME/.dotfiles/.config/sxhkd:$HOME/.config/
+$HOME/.dotfiles/.config/ranger:$HOME/.config/
+# $HOME/.dotfiles/.config/dunst:$HOME/.config/
+# $HOME/.dotfiles/.config/rofi:$HOME/.config/
+$HOME/.dotfiles/.config/mpv:$HOME/.config/
+$HOME/.dotfiles/.config/qtile:$HOME/.config/
+$HOME/.dotfiles/.config/picom:$HOME/.config/
+$HOME/.dotfiles/.config/bspwm:$HOME/.config/
+$HOME/.dotfiles/.config/polybar:$HOME/.config/
+
+# Home directory links
+$HOME/.dotfiles/.gitconfig:$HOME/
+# $HOME/.doftiles/.zshrc:$HOME/

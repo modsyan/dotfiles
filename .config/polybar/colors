@@ -1,0 +1,232 @@
+; Active Palte Color caller "color"
+
+; Axyl
+[color]
+background = #1a1b26
+foreground = #a9b1d6
+black      = #32344a
+red        = #f7768e
+green      = #9ece6a
+yellow     = #e0af68
+blue       = #7aa2f7
+magenta    = #ad8ee6
+cyan       = #449dab
+white      = #787c99
+altblack   = #444b6a
+altred     = #ff7a93
+altgreen   = #b9f27c
+altyellow  = #ff9e64
+altblue    = #7da6ff
+altmagenta = #bb9af7
+altcyan    = #0db9d7
+altwhite   = #acb0d0
+
+; DoomOne
+[DoomOne]
+background = #282c34
+foreground = #bbc2cf
+black      = #1c1f24
+red        = #ff6c6b
+green      = #98be65
+yellow     = #da8548
+blue       = #51afef
+magenta    = #c678dd
+cyan       = #5699af
+white      = #abb2bf
+altblack   = #5b6268
+altred     = #da8548
+altgreen   = #4db5bd
+altyellow  = #ecbe7b
+altblue    = #3071db
+altmagenta = #a9a1e1
+altcyan    = #46d9ff
+altwhite   = #dfdfdf
+
+; Dracula
+[Dracula]
+background = #282a36
+foreground = #f8f8f2
+black      = #000000
+red        = #ff5555
+green      = #50fa7b
+yellow     = #f1fa8c
+blue       = #bd93f9
+magenta    = #ff79c6
+cyan       = #8be9fd
+white      = #bfbfbf
+altblack   = #4d4d4d
+altred     = #ff6e67
+altgreen   = #5af78e
+altyellow  = #f4f99d
+altblue    = #caa9fa
+altmagenta = #ff92d0
+altcyan    = #9aedfe
+altwhite   = #e6e6e6
+
+; GruvboxDark
+[GruvboxDark]
+background = #282828
+foreground = #ebdbb2
+black      = #282828
+red        = #cc241d
+green      = #98971a
+yellow     = #d79921
+blue       = #458588
+magenta    = #b16286
+cyan       = #689d6a
+white      = #a89984
+altblack   = #928374
+altred     = #fb4934
+altgreen   = #b8bb26
+altyellow  = #fabd2f
+altblue    = #83a598
+altmagenta = #d3869b
+altcyan    = #8ec07c
+altwhite   = #ebdbb2
+
+; MonokaiPro
+[MonokaiPro]
+background = #2D2A2E
+foreground = #FCFCFA
+black      = #403E41
+red        = #FF6188
+green      = #A9DC76
+yellow     = #FFD866
+blue       = #FC9867
+magenta    = #AB9DF2
+cyan       = #78DCE8
+white      = #FCFCFA
+altblack   = #727072
+altred     = #FF6188
+altgreen   = #A9DC76
+altyellow  = #FFD866
+altblue    = #FC9867
+altmagenta = #AB9DF2
+altcyan    = #78DCE8
+altwhite   = #FCFCFA
+
+; Nord
+[Nord]
+background = #2E3440
+foreground = #D8DEE9
+black      = #3B4252
+red        = #BF616A
+green      = #A3BE8C
+yellow     = #EBCB8B
+blue       = #81A1C1
+magenta    = #B48EAD
+cyan       = #88C0D0
+white      = #E5E9F0
+altblack   = #4C566A
+altred     = #BF616A
+altgreen   = #A3BE8C
+altyellow  = #EBCB8B
+altblue    = #81A1C1
+altmagenta = #B48EAD
+altcyan    = #8FBCBB
+altwhite   = #ECEFF4
+
+; OceanicNext
+[OceanicNext]
+background = #1b2b34
+foreground = #d8dee9
+black      = #29414f
+red        = #ec5f67
+green      = #99c794
+yellow     = #fac863
+blue       = #6699cc
+magenta    = #c594c5
+cyan       = #5fb3b3
+white      = #65737e
+altblack   = #405860
+altred     = #ec5f67
+altgreen   = #99c794
+altyellow  = #fac863
+altblue    = #6699cc
+altmagenta = #c594c5
+altcyan    = #5fb3b3
+altwhite   = #adb5c0
+
+; Palenight
+[Palenight]
+background = #292d3e
+foreground = #d0d0d0
+black      = #292d3e
+red        = #f07178
+green      = #c3e88d
+yellow     = #ffcb6b
+blue       = #82aaff
+magenta    = #c792ea
+cyan       = #89ddff
+white      = #d0d0d0
+altblack   = #434758
+altred     = #ff8b92
+altgreen   = #ddffa7
+altyellow  = #ffe585
+altblue    = #9cc4ff
+altmagenta = #e1acff
+altcyan    = #a3f7ff
+altwhite   = #ffffff
+
+; SolarizedDark 
+[SolarizedDark]
+background = #002b36
+foreground = #839496
+black      = #073642
+red        = #dc322f
+green      = #859900
+yellow     = #b58900
+blue       = #268bd2
+magenta    = #d33682
+cyan       = #2aa198
+white      = #eee8d5
+altblack   = #002b36
+altred     = #cb4b16
+altgreen   = #586e75
+altyellow  = #657b83
+altblue    = #839496
+altmagenta = #6c71c4
+altcyan    = #93a1a1
+altwhite   = #fdf6e3
+
+; SolarizedLight
+[SolarizedLight]
+background = #fdf6e3
+foreground = #657b83
+black      = #073642
+red        = #dc322f
+green      = #859900
+yellow     = #b58900
+blue       = #268bd2
+magenta    = #d33682
+cyan       = #2aa198
+white      = #eee8d5
+altblack   = #002b36
+altred     = #cb4b16
+altgreen   = #586e75
+altyellow  = #657b83
+altblue    = #839496
+altmagenta = #fdf6e3
+altcyan    = #93a1a1
+altwhite   = #6c71c4
+
+; TomorrowNight
+[TomorrowNight]
+background = #1d1f21
+foreground = #c5c8c6
+black      = #1d1f21
+red        = #cc6666
+green      = #b5bd68
+yellow     = #e6c547
+blue       = #81a2be
+magenta    = #b294bb
+cyan       = #70c0ba
+white      = #373b41
+altblack   = #666666
+altred     = #ff3334
+altgreen   = #9ec400
+altyellow  = #f0c674
+altblue    = #81a2be
+altmagenta = #b77ee0
+altcyan    = #54ced6
+altwhite   = #282a2e
